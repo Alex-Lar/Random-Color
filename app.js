@@ -8,8 +8,15 @@ btn.addEventListener('click', () => {
     const value = getRandom();
 
     title.textContent = `RGB(${value[0]}, ${value[1]}, ${value[2]})`;
+    btn.style.background = `rgb(${value[0]}, ${value[1]}, ${value[2]})`;
     document.body.style.background = `rgb(${value[0]}, ${value[1]}, ${value[2]})`;
 });
+
+
+btn.addEventListener('click', () => {
+    btn.style.borderColor = 'white';
+    btn.style.color = 'white';
+},  { once: true });
 
 
 function getRandom() {
