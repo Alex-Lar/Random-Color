@@ -1,0 +1,31 @@
+body {
+    margin-top: 20vh;
+    text-align: center;
+}
+
+.title {
+    margin: 0 auto;
+    padding: 13px 20px;
+    font-size: 38px;
+
+    width: 320px;
+    border-radius: 8px;
+    background-color: #fff;
+}
+
+.button {
+    font-size: 19px;
+    margin-top: 15vh;
+    padding: 13px 30px;
+    border: 2px solid rgb(88, 37, 255);
+    border-radius: 8px;
+    background-color: rgb(255, 255, 255);
+    color: rgb(88, 37, 255);
+    transition: all .3s ease-out;
+    cursor: pointer;
+}
+
+.button:hover {
+    background-color: rgb(88, 37, 255);
+    color: #fff;
+}
