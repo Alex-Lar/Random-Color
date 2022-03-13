@@ -4,17 +4,28 @@ body {
     transition: all .1s ease-out;
 }
 
+* {
+    box-sizing: border-box;
+}
+
 .title {
     margin: 0 auto;
     padding: 13px 20px;
     font-size: 38px;
 
-    width: 320px;
+    width: 100%;
+    max-width: 450px;
+    height: auto;
+
     border-radius: 8px;
     background-color: #fff;
+    transition: opacity .1s linear;
 }
 
+
+
 .button {
+    position: relative;
     font-size: 19px;
     margin-top: 15vh;
     padding: 13px 30px;
@@ -29,4 +40,33 @@ body {
 .button:hover {
     background-color: rgb(88, 37, 255);
     color: #fff;
+}
+
+.--icon {
+    padding: 13px 15px;
+}
+
+.hidden__element {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    z-index: -1;
+}
+
+.opacity {
+    opacity: 0;
+}
+
+
+/* adapt */
+
+@media (max-width: 479.98px) {
+    body {
+        padding: 0 10px 0;
+    }
+    .title {
+        font-size: 28px;
+    }
 }
