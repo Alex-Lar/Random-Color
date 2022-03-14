@@ -1,20 +1,18 @@
 "use strict";
 
-let hiddenBtn = document.querySelector('.hidden__element'),
+let changeBtn = document.querySelector('#change-btn'),
+    hideBtn = document.querySelector('#hide-btn'),
     title = document.querySelector('.title'),
-    changeBtn = document.querySelector('#change-btn'),
-    hideBtn = document.querySelector('#hide-btn');
+    cover = document.createElement('div');
 
 
 changeBtn.addEventListener('click', () => {
-    const value = getRandomColor();
-    const randomColor = `rgb(${value[0]}, ${value[1]}, ${value[2]})`;
-    
-    title.textContent = randomColor;
-    document.body.style.background = randomColor;
+    const randomColor = getRandomColor();
 
-    changeBtn.style.background = randomColor;
-    hideBtn.style.background = randomColor;
+    document.body.style.background = randomColor;
+    changeBtn.style.backgroundColor = randomColor;
+    hideBtn.style.backgroundColor = randomColor;
+    title.textContent = randomColor;
 });
 
 
@@ -26,9 +24,28 @@ changeBtn.addEventListener('click', () => {
 },  { once: true });
 
 
-hideBtn.addEventListener('click', hideDisplay); 
+hideBtn.addEventListener('click', function() {
+    hideDisplay();
+    coverBody();
+}); 
 
-hiddenBtn.addEventListener('click', showDisplay); 
+ 
+cover.addEventListener('click', showDisplay); 
+
+
+function coverBody() {
+    document.body.appendChild(cover);
+    cover.setAttribute('class', 'cover');
+}
+
+
+function showDisplay() {
+    title.classList.remove('opacity');
+    changeBtn.classList.remove('opacity');
+    hideBtn.classList.remove('opacity');
+
+    cover.classList.remove('cover');
+}
 
 
 function hideDisplay() {
@@ -37,11 +54,6 @@ function hideDisplay() {
     hideBtn.classList.add('opacity');
 }
 
-function showDisplay() {
-    title.classList.remove('opacity');
-    changeBtn.classList.remove('opacity');
-    hideBtn.classList.remove('opacity');
-}
 
 function getRandomColor() {
     const num = [];
@@ -51,5 +63,5 @@ function getRandomColor() {
         num.push(randInt);
     }
 
-    return num;
+    return `rgb(${num[0]}, ${num[1]}, ${num[2]})`;
 }
